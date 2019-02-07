@@ -20,7 +20,6 @@ use kartik\date\DatePicker;
     <?= $form->field($model, 'is_988')->dropDownList($model->getDocTypeList()) ?>
 
     <?= $form->field($model, 'date_start')->widget(DatePicker::className(), [
-        'name' => 'check_issue_date', 
         'value' => date('yyyy-mm-dd', strtotime('+2 days')),
         'options' => ['placeholder' => 'Выберите дату начала...'],
         'pluginOptions' => [
@@ -30,7 +29,6 @@ use kartik\date\DatePicker;
     ]) ?>
 
     <?= $form->field($model, 'date_end')->widget(DatePicker::className(), [
-        'name' => 'check_issue_date', 
         'value' => date('yyyy-mm-dd', strtotime('+2 days')),
         'options' => ['placeholder' => 'Выберите дату окончания...'],
         'pluginOptions' => [

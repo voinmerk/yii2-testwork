@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ReportingPeriodSearch */
@@ -47,8 +48,32 @@ $this->params['breadcrumbs'][] = $this->title;
             	'format' => 'text',
             	'filter' => $searchModel->getDocTypeList()
             ],
-            'date_start:date',
-            'date_end:date',
+            [
+                'attribute' => 'date_start',
+                'format' => 'date',
+                'filter' => DatePicker::widget([
+                    'model' => $searchModel,
+                    'value' => $searchModel->date_start,
+                    'attribute' => 'date_start',
+                    'language' => Yii::$app->language,
+                    'pluginOptions' => [
+                        'format' => 'yyyy-mm-dd',
+                    ]
+                ]),
+            ],
+            [
+                'attribute' => 'date_end',
+                'format' => 'date',
+                'filter' => DatePicker::widget([
+                    'model' => $searchModel,
+                    'value' => $searchModel->date_end,
+                    'attribute' => 'date_end',
+                    'language' => Yii::$app->language,
+                    'pluginOptions' => [
+                        'format' => 'yyyy-mm-dd',
+                    ]
+                ]),
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
